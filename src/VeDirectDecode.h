@@ -20,8 +20,7 @@ public:
 	 * @brief Reads various MPPT parmeters
 	*/
 	bool getData(int32_t &batVoltage, int32_t &batCurrent, int32_t &loadCurrent, int32_t &loadState, 
-				 int32_t &panelVoltage, int32_t &panelPower, int32_t &converterState, 
-				 int32_t &maxPanelPowerToday, int32_t &panelPowerToday);
+				 int32_t &panelVoltage, int32_t &panelPower, int32_t &converterState);
 
 	/**
 	 * @brief Finds and reads the param of the specified type

@@ -19,8 +19,6 @@ void setup() {
   int32_t panelVoltage = 0;
   int32_t panelPower = 0;
   int32_t converterState = 0;
-  int32_t maxPanelPowerToday = 0;
-  int32_t panelYieldToday = 0;
 
   uint32_t readTimer = millis() + READ_TIMER_INTERVAL;
 
@@ -32,7 +30,7 @@ void setup() {
       uint32_t timeBegin = micros();
 
       if (test.getData(batVoltage, batCurrent, loadCurrent, loadState, panelVoltage, panelPower,
-                       converterState, maxPanelPowerToday, panelYieldToday)) {
+                       converterState)) {
         uint32_t timeEnd = micros();
         
         Serial.print("Solar Charger{Bat V:");
@@ -50,11 +48,7 @@ void setup() {
         Serial.print(panelPower);
         Serial.print(" W, Converter State:");
         Serial.print(converterState);
-        Serial.print(", Max Panel P:");
-        Serial.print(maxPanelPowerToday);
-        Serial.print(" W, Panel Yield P:");
-        Serial.print(panelYieldToday*10);
-        Serial.println(" Wh}");
+        Serial.println("}");
 
         Serial.print("Read time: ");
         Serial.print(timeEnd - timeBegin);
