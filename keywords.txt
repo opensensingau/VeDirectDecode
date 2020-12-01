@@ -3,8 +3,7 @@ VeDirectDecode	KEYWORD1
 
 # Methods and Functions (KEYWORD2)
 getData	KEYWORD2
-getValue	KEYWORD2
-getBool	KEYWORD2
+getParam	KEYWORD2
 
 # Instances (KEYWORD2)
 

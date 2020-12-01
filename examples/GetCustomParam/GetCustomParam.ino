@@ -1,5 +1,5 @@
 /**
- * Reads various parameters from the VE device and outputs them.
+ * Reads various custom parameters from the VE device and outputs them.
  * getParam() types must be read in the order that they appear over serial,
  * use the RawSerialDump sketch to determine the order.
  */
