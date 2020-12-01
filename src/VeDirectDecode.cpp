@@ -41,15 +41,15 @@ bool VeDirectDecode::getData(int32_t &batVoltage, int32_t &batCurrent, int32_t &
     memset(buff, 0, sizeof(buff));
   }
   if(getParam("CS", buff, sizeof(buff)-1)){
-    if(strcmp(buff, "ON") != 0){
-      converterState = 1;
-    }else{
-      converterState = 0;
-    }
+    converterState = atoi(buff);
     memset(buff, 0, sizeof(buff));
   }
   if(getParam("LOAD", buff, sizeof(buff)-1)){
-    loadState = atoi(buff);
+    if(strcmp("ON", buff) == 0){
+      loadState = 1;
+    }else{
+      loadState = 0;
+    }
     memset(buff, 0, sizeof(buff));
   }
   if(getParam("IL", buff, sizeof(buff)-1)){
@@ -86,7 +86,7 @@ bool VeDirectDecode::getParam(char *type, char *param, uint8_t maxLength) {
     while (!_serial->available());
     char val = _serial->peek();
 
-    if(val == '\n'){
+    if(val == '\r'){
       //At the end of the parameter so exit the loop
       break;
     }else{

@@ -2,6 +2,7 @@
 #define VEDIRECTDECODE_H
 
 #include <Arduino.h>
+#include <string.h>
 
 /**
  * Decodes VE Direct uart data
