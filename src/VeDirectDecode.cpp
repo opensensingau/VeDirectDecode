@@ -5,7 +5,8 @@ VeDirectDecode::VeDirectDecode(HardwareSerial *serial): _serial{serial} {
 }
 
 bool VeDirectDecode::getData(int32_t &batVoltage, int32_t &batCurrent, int32_t &loadCurrent, int32_t &loadState, 
-                             int32_t &panelVoltage, int32_t &panelPower, int32_t &converterState, int32_t &maxPowerToday) {
+                             int32_t &panelVoltage, int32_t &panelPower, int32_t &converterState, 
+                             int32_t &maxPanelPowerToday, int32_t &panelPowerToday) {
   char buff[21] = {0};
 
   //Timeout timer
@@ -40,7 +41,11 @@ bool VeDirectDecode::getData(int32_t &batVoltage, int32_t &batCurrent, int32_t &
     memset(buff, 0, sizeof(buff));
   }
   if(getParam("CS", buff, sizeof(buff)-1)){
-    converterState = atoi(buff);
+    if(strcmp(buff, "ON") != 0){
+      converterState = 1;
+    }else{
+      converterState = 0;
+    }
     memset(buff, 0, sizeof(buff));
   }
   if(getParam("LOAD", buff, sizeof(buff)-1)){
@@ -52,7 +57,11 @@ bool VeDirectDecode::getData(int32_t &batVoltage, int32_t &batCurrent, int32_t &
     memset(buff, 0, sizeof(buff));
   }
   if(getParam("H21", buff, sizeof(buff)-1)){
-    maxPowerToday = atoi(buff);
+    maxPanelPowerToday = atoi(buff);
+    memset(buff, 0, sizeof(buff));
+  }
+  if(getParam("H22", buff, sizeof(buff)-1)){
+    panelPowerToday = atoi(buff);
     memset(buff, 0, sizeof(buff));
   }
 
