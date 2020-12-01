@@ -1,0 +1,14 @@
+# Datatypes (KEYWORD1)
+VeDirectDecode	KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+getData	KEYWORD2
+getValue	KEYWORD2
+getBool	KEYWORD2
+
+# Instances (KEYWORD2)
+
+# Structures (KEYWORD3)
+    
+# Constants (LITERAL1)
+
