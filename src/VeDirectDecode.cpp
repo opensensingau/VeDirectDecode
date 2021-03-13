@@ -8,17 +8,9 @@ bool VeDirectDecode::getData(int32_t &batVoltage, int32_t &batCurrent, int32_t &
                              int32_t &panelVoltage, int32_t &panelPower, int32_t &converterState) {
   char buff[21] = {0};
 
-  //Timeout timer
-  uint32_t timer = millis() + 1000;
-
   //Make sure we have data to decode
-  while(_serial->available() < 50){
-	  delay(100);
-    if(millis() > timer){
-      //If it has been greater than a second and still no data
-      //The module probably isn't connect
-      return false;
-    }
+  if(_serial->available() < 50){
+	  return false;
   }
 
   //Get the values first in the buffer
