@@ -1,0 +1,37 @@
+{
+    "name": "VeDirectDecode",
+    "version": "1.0.0",
+    "description": "An improved (fast) Arduino library to read serial data from Victron MPPT charge controller devices using the VE.Direct protocol.",
+    "keywords": "solar, charge controller, remote telemetry, device management, victron, communication, serial, BLE, bluetooth, ve.direct, ve.direct protocol, ve.direct protocol library, ve.direct protocol arduino",
+    "category": "Communication",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/opensensingau/VeDirectDecode"
+    },
+    "authors":
+    [
+      {
+        "name": "Simon Rosenzweig",
+        "email": "simonzigon15@gmail.com",
+        "maintainer": false
+      },
+      {
+        "name": "Leo Gaggl",
+        "email": "leo@opensensing.com",
+        "url": "https://opensensing.com",
+        "maintainer": true
+      }
+    ],
+    "export": {
+      "exclude":
+      [
+          "test/*"
+      ]
+    },
+    "license": "MIT",
+    "dependencies": {
+    },
+    "frameworks": ["Arduino"],
+    "platforms": ["*"]
+  }
